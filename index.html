@@ -56,7 +56,7 @@
         <main class="content">
 
             <!-- Step 1 -->
-            <section id="step1">
+            <section id="step1" class="step-content">
 
                 <h1>Personal info</h1>
 
@@ -68,7 +68,7 @@
 
                     <label>Name</label>
                     <span class="error" id="name-error"></span>
-                    <input
+                    <input id="userName"
                         type="text"
                         name="userName"
                         placeholder="e.g. Stephen King"
@@ -76,7 +76,7 @@
 
                     <label>Email Address</label>
                     <span class="error" id="email-error"></span>
-                    <input
+                    <input id="email"
                         type="email"
                         name="email"
                         placeholder="e.g. stephenking@lorem.com"
@@ -85,7 +85,7 @@
                     <label>Phone Number</label>
                     <span class="error" id="phone-error"></span>
 
-                    <input
+                    <input id="phone"
                         type="tel"
                         name="phone"
                         placeholder="e.g. +1 234 567 890"
@@ -98,11 +98,12 @@
                 </form>
 
             </section>
-            <section id="step2" class="hidden">
+            <section id="step2" class="step-content hidden">
 
                 <h1>Select your plan</h1>
             
                 <p>You have the option of monthly or yearly billing.</p>
+                <span class="error" id="plan-error"></span>
             
                 <div class="plans">
             
@@ -118,7 +119,7 @@
                     <div class="plan_card" data-plan="Advanced">
                         <img src="./assets/images/icon-advanced.svg" alt="Advanced">
             
-                        <div>
+                        <div class="plan_info">
                             <h3>Advanced</h3>
                             <p>$12/mo</p>
                         </div>
@@ -127,7 +128,7 @@
                     <div class="plan_card" data-plan="Pro">
                         <img src="./assets/images/icon-pro.svg" alt="Pro">
             
-                        <div>
+                        <div class="plan_info">
                             <h3>Pro</h3>
                             <p>$15/mo</p>
                         </div>
@@ -160,17 +161,18 @@
                 </div>
             
             </section>
-            <section id="step3" class="hidden">
+            <section id="step3" class="step-content hidden">
 
                 <h1>Pick add-ons</h1>
             
                 <p>
                     Add-ons help enhance your gaming experience.
                 </p>
+                <span class="error" id="addon-error"></span>
             
                 <div class="addon_card" data-addon="Online service">
 
-                    <input type="checkbox">
+                    <input type="checkbox" name="addon">
                 
                     <div class="addon_info">
                         <h3>Online service</h3>
@@ -180,39 +182,43 @@
                     <span>+$1/mo</span>
                 
                 </div>
-            
-                <div class="addon_card" data-addon="Online service">
-
-                    <input type="checkbox">
+                
+                <div class="addon_card" data-addon="Larger storage">
+                    <input type="checkbox" name="addon">
                 
                     <div class="addon_info">
-                        <h3>Online service</h3>
-                        <p>Access to multiplayer games</p>
+                        <h3>Larger storage</h3>
+                        <p>Extra 1TB of cloud save</p>
                     </div>
                 
-                    <span>+$1/mo</span>
-                
+                    <span>+$2/mo</span>
                 </div>
-            
-                <div class="addon_card" data-addon="Online service">
-
-                    <input type="checkbox">
+                
+                <div class="addon_card" data-addon="Customizable profile">
+                    <input type="checkbox" name="addon">
                 
                     <div class="addon_info">
-                        <h3>Online service</h3>
-                        <p>Access to multiplayer games</p>
+                        <h3>Customizable profile</h3>
+                        <p>Custom theme on your profile</p>
                     </div>
                 
-                    <span>+$1/mo</span>
-                
+                    <span>+$2/mo</span>
                 </div>
             
-                <button id="back-step3" type="button">Go Back</button>
-            
-                <button id="next-step3" type="button">Next Step</button>
+                <div class="navigation">
+
+                    <button id="back-step3" type="button">
+                        Go Back
+                    </button>
+                
+                    <button id="next-step3" type="button">
+                        Next Step
+                    </button>
+                
+                </div>
             
             </section>
-            <section id="step4" class="hidden">
+            <section id="step4" class="step-content hidden">
 
                 <h1>Finishing up</h1>
             
@@ -222,7 +228,10 @@
             
                 <div class="summary">
 
-                    <div id="selected-plan"></div>
+                    <div id="selected-plan">
+                        <h3></h3>
+                        <p></p>
+                    </div>
                 
                     <hr>
                 
@@ -234,13 +243,21 @@
                     Total: $0/mo
                 </h3>
             
-                <button id="back-step4" type="button">Go Back</button>
-            
-                <button id="confirm-button" type="button">Confirm</button>
+                <div class="navigation">
+
+                    <button id="back-step4" type="button">
+                        Go Back
+                    </button>
+                
+                    <button id="confirm-button" type="button">
+                        Confirm
+                    </button>
+                
+                </div>
             
             </section>
 
-            <section id="step5" class="hidden">
+            <section id="step5" class="step-content hidden">
 
                 <div class="thank-you">
             

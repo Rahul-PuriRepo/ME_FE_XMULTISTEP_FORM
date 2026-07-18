@@ -259,3 +259,19 @@ button:hover{
     line-height:1.7;
 
 }
+.error{
+    color:#ed3548;
+    font-size:12px;
+    align-self:flex-end;
+    margin-bottom:6px;
+}
+
+.plan_card.selected {
+    border-color: #483eff;
+    background: #f8f9fe;
+}
+
+.addon_card.selected{
+    border-color:#483eff;
+    background:#f8f9fe;
+}
