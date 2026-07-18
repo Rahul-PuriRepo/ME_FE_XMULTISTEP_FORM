@@ -5,13 +5,12 @@
 const sections = document.querySelectorAll(".step-content");
 const sidebarSteps = document.querySelectorAll(".step");
 
-const nextButton = document.getElementById("next-button");
+const nextButtons = document.querySelectorAll("#next-button");
 const backStep2 = document.getElementById("back-step2");
 const nextStep2 = document.getElementById("next-step2");
 const backStep3 = document.getElementById("back-step3");
 const nextStep3 = document.getElementById("next-step3");
 const backStep4 = document.getElementById("back-step4");
-const confirmButton = document.getElementById("confirm-button");
 const userName = document.getElementById("userName");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
@@ -187,7 +186,7 @@ addonCards.forEach(card => {
 
 });
 
-nextButton.addEventListener("click", () => {
+nextButtons[0].addEventListener("click", () => {
     if (validateStep1()) {
         showStep(2);
     }
@@ -197,7 +196,7 @@ backStep2.addEventListener("click", () => {
     showStep(1);
 });
 
-nextStep2.addEventListener("click", () => {
+nextButtons[1].addEventListener("click", () => {
 
     if (selectedPlan === "") {
         planError.textContent = "Please select a plan";
@@ -211,7 +210,7 @@ backStep3.addEventListener("click", () => {
     showStep(2);
 });
 
-nextStep3.addEventListener("click", () => {
+nextButtons[2].addEventListener("click", () => {
 
     if (selectedAddons.length === 0) {
         addonError.textContent = "Please select at least one add-on";
@@ -227,7 +226,7 @@ backStep4.addEventListener("click", () => {
     showStep(3);
 });
 
-confirmButton.addEventListener("click", () => {
+nextButtons[3].addEventListener("click", () => {
     showStep(5);
 });
 
