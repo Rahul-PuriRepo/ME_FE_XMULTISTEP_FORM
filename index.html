@@ -101,35 +101,50 @@
 
                 <h1>Select your plan</h1>
             
-                <p>
-                    You have the option of monthly or yearly billing.
-                </p>
+                <p>You have the option of monthly or yearly billing.</p>
             
                 <div class="plans">
             
-                    <div class="plan_card">
+                    <div class="plan_card" data-plan="Arcade">
                         <img src="./assets/images/icon-arcade.svg" alt="Arcade">
-                        <h3>Arcade</h3>
-                        <p>$9/mo</p>
+            
+                        <div>
+                            <h3>Arcade</h3>
+                            <p>$9/mo</p>
+                        </div>
                     </div>
             
-                    <div class="plan_card">
+                    <div class="plan_card" data-plan="Advanced">
                         <img src="./assets/images/icon-advanced.svg" alt="Advanced">
-                        <h3>Advanced</h3>
-                        <p>$12/mo</p>
+            
+                        <div>
+                            <h3>Advanced</h3>
+                            <p>$12/mo</p>
+                        </div>
                     </div>
             
-                    <div class="plan_card">
+                    <div class="plan_card" data-plan="Pro">
                         <img src="./assets/images/icon-pro.svg" alt="Pro">
-                        <h3>Pro</h3>
-                        <p>$15/mo</p>
+            
+                        <div>
+                            <h3>Pro</h3>
+                            <p>$15/mo</p>
+                        </div>
                     </div>
             
                 </div>
             
-                <button id="back-step2" type="button">Go Back</button>
+                <div class="navigation">
             
-                <button id="next-step2" type="button">Next Step</button>
+                    <button id="back-step2" type="button">
+                        Go Back
+                    </button>
+            
+                    <button id="next-step2" type="button">
+                        Next Step
+                    </button>
+            
+                </div>
             
             </section>
             <section id="step3" class="hidden">
@@ -140,17 +155,17 @@
                     Add-ons help enhance your gaming experience.
                 </p>
             
-                <div class="addon_card">
+                <div class="addon_card" data-addon="Online service">
                     <input type="checkbox">
                     <h3>Online service</h3>
                 </div>
             
-                <div class="addon_card">
+                <div class="addon_card" data-addon="Larger storage">
                     <input type="checkbox">
                     <h3>Larger storage</h3>
                 </div>
             
-                <div class="addon_card">
+                <div class="addon_card" data-addon="Customizable Profile">
                     <input type="checkbox">
                     <h3>Customizable Profile</h3>
                 </div>
@@ -169,14 +184,18 @@
                 </p>
             
                 <div class="summary">
-            
-                    <h3>Selected Plan</h3>
-            
+
+                    <div id="selected-plan"></div>
+                
+                    <hr>
+                
                     <div id="selected-addons"></div>
-            
-                    <h2 id="total-price"></h2>
-            
+                
                 </div>
+                
+                <h3 id="total-price">
+                    Total: $0/mo
+                </h3>
             
                 <button id="back-step4" type="button">Go Back</button>
             
@@ -186,16 +205,17 @@
 
             <section id="step5" class="hidden">
 
-                <img
-                    src="./assets/images/icon-thank-you.svg"
-                    alt="Thank You"
-                >
+                <div class="thank-you">
             
-                <h1>Thank you!</h1>
+                    <img src="./assets/images/icon-thank-you.svg" alt="Thank You">
             
-                <p>
-                    Thanks for confirming your subscription! We hope you have fun using our platform.
-                </p>
+                    <h1>Thank you!</h1>
+            
+                    <p>
+                        Thanks for confirming your subscription! We hope you have fun using our platform.
+                    </p>
+            
+                </div>
             
             </section>
 
