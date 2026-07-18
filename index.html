@@ -14,7 +14,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
 
-            <div class="step active">
+            <div class="step active" data-step="1">
                 <div class="step-number">1</div>
 
                 <div class="step-text">
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <div class="step">
+            <div class="step" data-step="2">
                 <div class="step-number">2</div>
 
                 <div class="step-text">
@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            <div class="step">
+            <div class="step" data-step="3">
                 <div class="step-number">3</div>
 
                 <div class="step-text">
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="step">
+            <div class="step" data-step="4">
                 <div class="step-number">4</div>
 
                 <div class="step-text">
@@ -67,7 +67,7 @@
                 <form>
 
                     <label>Name</label>
-
+                    <span class="error" id="name-error"></span>
                     <input
                         type="text"
                         name="userName"
@@ -75,7 +75,7 @@
                     >
 
                     <label>Email Address</label>
-
+                    <span class="error" id="email-error"></span>
                     <input
                         type="email"
                         name="email"
@@ -83,6 +83,7 @@
                     >
 
                     <label>Phone Number</label>
+                    <span class="error" id="phone-error"></span>
 
                     <input
                         type="tel"
@@ -108,7 +109,7 @@
                     <div class="plan_card" data-plan="Arcade">
                         <img src="./assets/images/icon-arcade.svg" alt="Arcade">
             
-                        <div>
+                        <div class="plan_info">
                             <h3>Arcade</h3>
                             <p>$9/mo</p>
                         </div>
@@ -133,6 +134,18 @@
                     </div>
             
                 </div>
+                <div class="billing-toggle">
+
+                    <span>Monthly</span>
+                
+                    <label class="switch">
+                        <input type="checkbox" id="billing-toggle">
+                        <span class="slider"></span>
+                    </label>
+                
+                    <span>Yearly</span>
+                
+                </div>
             
                 <div class="navigation">
             
@@ -156,18 +169,42 @@
                 </p>
             
                 <div class="addon_card" data-addon="Online service">
+
                     <input type="checkbox">
-                    <h3>Online service</h3>
+                
+                    <div class="addon_info">
+                        <h3>Online service</h3>
+                        <p>Access to multiplayer games</p>
+                    </div>
+                
+                    <span>+$1/mo</span>
+                
                 </div>
             
-                <div class="addon_card" data-addon="Larger storage">
+                <div class="addon_card" data-addon="Online service">
+
                     <input type="checkbox">
-                    <h3>Larger storage</h3>
+                
+                    <div class="addon_info">
+                        <h3>Online service</h3>
+                        <p>Access to multiplayer games</p>
+                    </div>
+                
+                    <span>+$1/mo</span>
+                
                 </div>
             
-                <div class="addon_card" data-addon="Customizable Profile">
+                <div class="addon_card" data-addon="Online service">
+
                     <input type="checkbox">
-                    <h3>Customizable Profile</h3>
+                
+                    <div class="addon_info">
+                        <h3>Online service</h3>
+                        <p>Access to multiplayer games</p>
+                    </div>
+                
+                    <span>+$1/mo</span>
+                
                 </div>
             
                 <button id="back-step3" type="button">Go Back</button>
