@@ -5,12 +5,11 @@
 const sections = document.querySelectorAll(".step-content");
 const sidebarSteps = document.querySelectorAll(".step");
 
-const nextButtons = document.querySelectorAll("#next-button");
-const backStep2 = document.getElementById("back-step2");
-const nextStep2 = document.getElementById("next-step2");
-const backStep3 = document.getElementById("back-step3");
-const nextStep3 = document.getElementById("next-step3");
-const backStep4 = document.getElementById("back-step4");
+const nextButton = document.getElementById("next-button");
+const backButton = document.getElementById("back-button");
+const form = document.querySelector("form");
+
+
 const userName = document.getElementById("userName");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
@@ -60,9 +59,9 @@ function showStep(step) {
         .getElementById(`step${step}`)
         .classList.remove("hidden");
 
-        sidebarSteps.forEach(sidebarStep =>
-            sidebarStep.classList.remove("active")
-        );
+    sidebarSteps.forEach(sidebarStep =>
+        sidebarStep.classList.remove("active")
+    );
 
     const activeSidebarStep = document.querySelector(
         `[data-step="${step}"]`
@@ -73,7 +72,17 @@ function showStep(step) {
     }
 
     currentStep = step;
+
+    // Back button visibility
+    backButton.style.display = step === 1 || step === 5 ? "none" : "inline-block";
+
+    // Next button visibility
+    nextButton.style.display = step === 5 ? "none" : "inline-block";
+
+    // Button text
+    nextButton.textContent = step === 4 ? "Confirm" : "Next Step";
 }
+
 function validateStep1() {
     let isValid = true;
 
@@ -133,9 +142,10 @@ function toggleAddon(card) {
     card.classList.toggle("selected");
 
     checkbox.checked = card.classList.contains("selected");
-
     if (checkbox.checked) {
-        selectedAddons.push(addonName);
+        if (!selectedAddons.includes(addonName)) {
+            selectedAddons.push(addonName);
+        }
     } else {
         selectedAddons = selectedAddons.filter(
             addon => addon !== addonName
@@ -186,50 +196,64 @@ addonCards.forEach(card => {
 
 });
 
-nextButtons[0].addEventListener("click", () => {
-    if (validateStep1()) {
-        showStep(2);
+nextButton.addEventListener("click", () => {
+    
+    switch (currentStep) {
+
+        case 1:
+            if (!form.reportValidity()) {
+                return;
+            }
+
+            if (validateStep1()) {
+                showStep(2);
+            }
+
+            break;
+
+        case 2:
+
+            if (selectedPlan === "") {
+                planError.textContent = "Please select a plan";
+                return;
+            }
+
+            showStep(3);
+
+            break;
+
+        case 3:
+
+            if (selectedAddons.length === 0) {
+                addonError.textContent = "Please select at least one add-on";
+                return;
+            }
+
+            updateSummary();
+            showStep(4);
+
+            break;
+
+        case 4:
+
+            showStep(5);
+
+            break;
     }
+
 });
 
-backStep2.addEventListener("click", () => {
-    showStep(1);
-});
+backButton.addEventListener("click", () => {
 
-nextButtons[1].addEventListener("click", () => {
-
-    if (selectedPlan === "") {
-        planError.textContent = "Please select a plan";
-        return;
+    if (currentStep > 1) {
+        showStep(currentStep - 1);
     }
 
-    showStep(3);
 });
 
-backStep3.addEventListener("click", () => {
-    showStep(2);
-});
 
-nextButtons[2].addEventListener("click", () => {
 
-    if (selectedAddons.length === 0) {
-        addonError.textContent = "Please select at least one add-on";
-        return;
-    }
-
-    updateSummary();
-    showStep(4);
-
-});
-
-backStep4.addEventListener("click", () => {
-    showStep(3);
-});
-
-nextButtons[3].addEventListener("click", () => {
-    showStep(5);
-});
-
-document.querySelector("form").addEventListener("submit", (e) => {
+form.addEventListener("submit", (e) => {
     e.preventDefault();
 });
+showStep(1);
