@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Step Form</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="step active">
+                <div class="step-number">1</div>
+
+                <div class="step-text">
+                    <p>STEP 1</p>
+                    <h4>YOUR INFO</h4>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+
+                <div class="step-text">
+                    <p>STEP 2</p>
+                    <h4>SELECT PLAN</h4>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+
+                <div class="step-text">
+                    <p>STEP 3</p>
+                    <h4>ADD-ONS</h4>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+
+                <div class="step-text">
+                    <p>STEP 4</p>
+                    <h4>SUMMARY</h4>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+
+            <!-- Step 1 -->
+            <section id="step1">
+
+                <h1>Personal info</h1>
+
+                <p>
+                    Please provide your name, email address, and phone number.
+                </p>
+
+                <form>
+
+                    <label>Name</label>
+
+                    <input
+                        type="text"
+                        name="userName"
+                        placeholder="e.g. Stephen King"
+                    >
+
+                    <label>Email Address</label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="e.g. stephenking@lorem.com"
+                    >
+
+                    <label>Phone Number</label>
+
+                    <input
+                        type="tel"
+                        name="phone"
+                        placeholder="e.g. +1 234 567 890"
+                    >
+
+                    <button id="next-button" type="button">
+                        Next Step
+                    </button>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
